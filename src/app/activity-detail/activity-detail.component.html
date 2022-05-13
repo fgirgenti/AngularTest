@@ -1,5 +1,6 @@
 <ng-container *ngIf="activity$ | async as activity">
     <h1>{{ activity.activity }}</h1>
+    <img src="/assets/{{activity.type | titlecase}}.png" alt="no">
     <p>Participants: {{ activity.participants }}</p>
     <p>Price: {{ activity.price }}</p>
     <p>Accessibility: {{ activity.accessibility}}</p>
