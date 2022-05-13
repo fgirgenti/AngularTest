@@ -3,7 +3,12 @@
     <div *ngFor="let activity of activities">
         <p>Name: {{ activity.activity }}</p>
         <p>Type: {{ activity.type | titlecase}}</p>
-        <p>Price: {{ activity.price }}</p>
+        <p>Price: 
+            <span *ngIf="activity.price === 0">Gratis</span>
+            <span *ngIf="activity.price > 0 && activity.price <= 0.5">Basso</span>
+            <span *ngIf="activity.price > 0.5 && activity.price < 1">Medio</span>
+            <span *ngIf="activity.price === 1">Alto</span>
+        </p>
         <button (click)="selectActivity(activity)" routerLink="/details">Dettagli</button>
     </div>
 </div>
