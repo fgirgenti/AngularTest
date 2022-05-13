@@ -9,7 +9,6 @@ import { ActivityService } from '../services/activity.service';
 })
 export class ActivityListComponent implements OnInit {
   activities = this.activityService.getActivities()
-  price!: string;
 
   selectActivity(activity: Activity) {
     this.activityService.selectActivity(activity)

@@ -3,7 +3,7 @@
     <div *ngFor="let activity of activities">
         <p>Name: {{ activity.activity }}</p>
         <p>Type: {{ activity.type | titlecase}}</p>
-        <p>Price:</p>
+        <p>Price: {{ activity.price }}</p>
         <button (click)="selectActivity(activity)" routerLink="/details">Dettagli</button>
     </div>
 </div>
