@@ -11,7 +11,7 @@ export class ActivityListComponent implements OnInit {
   activities = this.activityService.getActivities()
 
   selectActivity(key: string) {
-    this.activityService.selectActivity(key);
+    this.router.navigate(['details', key]);
   }
 
   constructor( private activityService: ActivityService, private router: Router) { }

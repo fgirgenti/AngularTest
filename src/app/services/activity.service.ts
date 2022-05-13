@@ -32,10 +32,6 @@ export class ActivityService {
     return this.activities;
   }
 
-  selectActivity(key: string) {
-    this.router.navigate(['details', key])
-  }
-
   getSelected(key: string | null): Observable<Activity> {
     return this.httpClient.get<Activity>(`http://www.boredapi.com/api/activity?key=${key}`)
   }
