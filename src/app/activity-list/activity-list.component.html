@@ -9,11 +9,11 @@
             <span *ngIf="activity.price > 0.5 && activity.price < 1">Medio</span>
             <span *ngIf="activity.price === 1">Alto</span>
         </p>
-        <button (click)="selectActivity(activity)" routerLink="/details">Dettagli</button>
+        <button (click)="selectActivity(activity)" routerLink="/details">Details</button>
     </div>
 </div>
 
-<button routerLink="/request">Richiedi un'attività</button>
+<button routerLink="/request">Request an Activity</button>
 
 <ng-template #noActivities>
     There aren't any activities
