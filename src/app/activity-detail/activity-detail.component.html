@@ -1,8 +1,8 @@
-<div>
+<ng-container *ngIf="activity$ | async as activity">
     <h1>{{ activity.activity }}</h1>
     <p>Participants: {{ activity.participants }}</p>
     <p>Price: {{ activity.price }}</p>
     <p>Accessibility: {{ activity.accessibility}}</p>
-</div>
+</ng-container>
 
 <button routerLink="/list">Return to List</button>

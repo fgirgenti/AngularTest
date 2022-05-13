@@ -9,7 +9,7 @@
             <span *ngIf="activity.price > 0.5 && activity.price < 1">Medio</span>
             <span *ngIf="activity.price === 1">Alto</span>
         </p>
-        <button (click)="selectActivity(activity)" routerLink="/details">Details</button>
+        <button (click)="selectActivity(activity.key)">Details</button>
     </div>
 </div>
 

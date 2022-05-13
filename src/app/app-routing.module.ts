@@ -7,7 +7,7 @@ import { ActivityRequestComponent } from './activity-request/activity-request.co
 const routes: Routes = [
   { path: 'request', component: ActivityRequestComponent},
   { path: 'list', component: ActivityListComponent},
-  { path: 'details', component: ActivityDetailComponent},
+  { path: 'details/:key', component: ActivityDetailComponent},
   { path: '', redirectTo: 'request', pathMatch: 'full' },
   { path: '**', redirectTo: 'request' }
 ];

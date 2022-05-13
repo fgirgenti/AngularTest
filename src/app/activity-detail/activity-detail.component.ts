@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../models/activity';
 import { ActivityService } from '../services/activity.service';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-activity-detail',
@@ -8,12 +10,14 @@ import { ActivityService } from '../services/activity.service';
   styleUrls: ['./activity-detail.component.css']
 })
 export class ActivityDetailComponent implements OnInit {
-
-  activity: Activity = this.activityService.getSelected()
+  activity$!: Observable<Activity>;
   
-  constructor( private activityService: ActivityService) { }
+  constructor( private activityService: ActivityService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activity$ = this.activatedRoute.paramMap.pipe(
+      switchMap((params: ParamMap) => this.activityService.getSelected(params.get('key')))
+    )    
   }
   
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Activity } from '../models/activity';
 import { ActivityService } from '../services/activity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activity-list',
@@ -10,11 +10,11 @@ import { ActivityService } from '../services/activity.service';
 export class ActivityListComponent implements OnInit {
   activities = this.activityService.getActivities()
 
-  selectActivity(activity: Activity) {
-    this.activityService.selectActivity(activity)
+  selectActivity(key: string) {
+    this.activityService.selectActivity(key);
   }
 
-  constructor( private activityService: ActivityService) { }
+  constructor( private activityService: ActivityService, private router: Router) { }
 
   ngOnInit(): void {
   }

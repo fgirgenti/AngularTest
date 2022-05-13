@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivityService } from '../services/activity.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-activity-request',
@@ -17,11 +16,10 @@ export class ActivityRequestComponent implements OnInit {
   });
 
   onSubmit() {
-    let temp = this.activityService.pushActivity(this.activityForm.value.type, this.activityForm.value.participants, this.activityForm.value.price)
-    this.router.navigateByUrl('/list');
+    this.activityService.pushActivity(this.activityForm.value.type, this.activityForm.value.participants, this.activityForm.value.price);
   }
   
-  constructor( private activityService: ActivityService, private router: Router) { }
+  constructor( private activityService: ActivityService ) { }
 
   ngOnInit(): void {
   }
