@@ -1,19 +1,23 @@
-<h1>Activity List</h1>
-<div *ngIf="activities.length > 0; else noActivities">
-    <div *ngFor="let activity of activities">
-        <p>Name: {{ activity.activity }}</p>
-        <p>Type: {{ activity.type | titlecase}}</p>
-        <p>Price: 
-            <span *ngIf="activity.price === 0">Gratis</span>
-            <span *ngIf="activity.price > 0 && activity.price <= 0.5">Basso</span>
-            <span *ngIf="activity.price > 0.5 && activity.price < 1">Medio</span>
-            <span *ngIf="activity.price === 1">Alto</span>
-        </p>
-        <button (click)="selectActivity(activity.key)">Details</button>
-    </div>
-</div>
+<div class="flex">
 
-<button routerLink="/request">Request an Activity</button>
+    <h1>Activity List</h1>
+    <div *ngIf="activities.length > 0; else noActivities">
+        <div class="card card-body mb-3" *ngFor="let activity of activities">
+            <p>Name: {{ activity.activity }}</p>
+            <p>Type: {{ activity.type | titlecase}}</p>
+            <p>Price: 
+                <span *ngIf="activity.price === 0">Gratis</span>
+                <span *ngIf="activity.price > 0 && activity.price <= 0.5">Basso</span>
+                <span *ngIf="activity.price > 0.5 && activity.price < 1">Medio</span>
+                <span *ngIf="activity.price === 1">Alto</span>
+            </p>
+            <button class="btn btn-primary" (click)="selectActivity(activity.key)">Details</button>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" routerLink="/request">Request an Activity</button>
+
+</div>
 
 <ng-template #noActivities>
     There aren't any activities

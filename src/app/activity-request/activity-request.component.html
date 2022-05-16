@@ -1,26 +1,28 @@
+<div class="flex">
 <h1>Activity</h1>
+    <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
 
-<form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+        <label for="type">Type: </label>
+        <select class="form-select mb-2" id="type" formControlName="type" placeholder="text">
+            <option value="" disabled selected hidden>Choose a type</option>
+            <option value="education">Education</option>
+            <option value="recreational">Recreational</option>
+            <option value="social">Social</option>
+            <option value="diy">Diy</option>
+            <option value="charity">Charity</option>
+            <option value="cooking">Cooking</option>
+            <option value="relaxation">Relaxation</option>
+            <option value="music">Music</option>
+            <option value="busywork">Busywork</option>
+        </select>
 
-    <label for="type">Type: </label>
-    <select id="type" formControlName="type">
-        <option value="education">Education</option>
-        <option value="recreational">Recreational</option>
-        <option value="social">Social</option>
-        <option value="diy">Diy</option>
-        <option value="charity">Charity</option>
-        <option value="cooking">Cooking</option>
-        <option value="relaxation">Relaxation</option>
-        <option value="music">Music</option>
-        <option value="busywork">Busywork</option>
-    </select>
+        <label for="participants">Participants: </label>
+        <input class="form-control mb-2" id="participants" type="number" min="1" formControlName="participants">
 
-    <label for="participants">Participants: </label>
-    <input id="participants" type="number" min="1" formControlName="participants">
+        <label for="price">Price: </label>
+        <input class="form-range mb-2" type="range" min="0" max="1" id="price" step="0.05" formControlName="price">
 
-    <label for="price">Price: </label>
-    <input type="range" min="0" max="1" id="price" step="0.05" formControlName="price">
-
-    <button class="btn btn-primary" type="submit">Invia</button>
-</form>
+        <button class="btn btn-primary mb-5" type="submit">Invia</button>
+    </form>
+</div>
 
